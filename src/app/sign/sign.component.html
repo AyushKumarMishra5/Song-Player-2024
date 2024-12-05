@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>GannaSuno</h2>
+    <form (ngSubmit)="onSubmit()" #signForm="ngForm">
+        <input type="text" name="username" id="Name" placeholder="Username" [(ngModel)]="username" required
+            #usernameField="ngModel">
+        <div *ngIf="usernameField.invalid && usernameField.touched" class="error-message">
+            Please enter your username
+        </div>
+
+        <input type="password" name="password" id="Pass" placeholder="Password" [(ngModel)]="password" required
+            #passwordField="ngModel">
+        <div *ngIf="passwordField.invalid && passwordField.touched" class="error-message">
+            Please enter your password
+        </div>
+
+        <input type="email" [(ngModel)]="mail" id="mail" placeholder="Enter your email here" #mailField="ngModel">
+        <div *ngIf="mailField.invalid && mailField.touched" class="error-message">
+            Please enter your email
+        </div>
+
+        <button type="submit" [disabled]="signForm.invalid">Sign In</button>
+    </form>
+</div>
